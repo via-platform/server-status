@@ -1,0 +1,144 @@
+@import "variables";
+@import "ui-variables";
+
+.server-status
+{
+    background: @pane-background-color;
+
+    .via-table
+    {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .thead
+        {
+            .td:first-child
+            {
+                padding-left: 30px;
+                position: relative;
+
+                &::before
+                {
+                    width: 14px;
+                    height: 12px;
+                    content: "";
+                    background: url('via://websockets/images/connections.svg') 1px 2px no-repeat;
+                    background-size: 12px auto;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 8px;
+                    margin: auto 0;
+                }
+            }
+
+            .td:last-child
+            {
+                text-align: left;
+            }
+        }
+
+        .tbody
+        {
+            flex: 1;
+            overflow: auto;
+        }
+
+        .tr
+        {
+            display: flex;
+            height: 25px;
+            border-bottom: 1px solid fade(@header-border-color, 50%);
+            position: relative;
+
+            &::before
+            {
+                width: 8px;
+                height: 8px;
+                border-radius: 4px;
+                background: @text-color-subtle;
+                content: "";
+                position: absolute;
+                top: 8px;
+                left: 11px;
+            }
+
+            &.websocket-connected::before
+            {
+                background: @primary-color-up;
+            }
+
+            &.websocket-disconnected::before
+            {
+                background: @primary-color-down;
+            }
+
+            .td
+            {
+                flex: 1;
+                font-size: 11px;
+                padding: 0 10px;
+                line-height: 24px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                &:first-child
+                {
+                    padding-left: 30px;
+                }
+
+                &:last-child
+                {
+                    color: @text-color-subtle;
+                }
+            }
+        }
+    }
+}
+
+.server-status-indicator
+{
+    display: flex;
+    align-items: center;
+    background-size: 12px auto;
+    background-repeat: no-repeat;
+    font-weight: 700;
+
+    .websockets-status-icon
+    {
+        display: block;
+        margin-right: 6px;
+    }
+
+    &.websockets-connected
+    {
+        color: @primary-color-up;
+
+        .websockets-status-icon
+        {
+            fill: @primary-color-up;
+        }
+    }
+
+    &.websockets-partially-connected
+    {
+        color: @background-color-warning;
+
+        .websockets-status-icon
+        {
+            fill: @background-color-warning;
+        }
+    }
+
+    &.websockets-disconnected
+    {
+        color: @primary-color-down;
+
+        .websockets-status-icon
+        {
+            fill: @primary-color-down;
+        }
+    }
+}
