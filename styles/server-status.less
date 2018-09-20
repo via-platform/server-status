@@ -23,7 +23,7 @@
                     width: 14px;
                     height: 12px;
                     content: "";
-                    background: url('via://websockets/images/connections.svg') 1px 2px no-repeat;
+                    background: url('via://server-status/images/connections.svg') 1px 2px no-repeat;
                     background-size: 12px auto;
                     position: absolute;
                     top: 0;
@@ -64,12 +64,22 @@
                 left: 11px;
             }
 
-            &.websocket-connected::before
+            &.server-status-connected::before
             {
                 background: @primary-color-up;
             }
 
-            &.websocket-disconnected::before
+            &.server-status-disconnected::before
+            {
+                background: @primary-color-down;
+            }
+
+            &.server-status-restoring::before
+            {
+                background: @background-color-warning;
+            }
+
+            &.server-status-error::before
             {
                 background: @primary-color-down;
             }
