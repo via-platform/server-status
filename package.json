@@ -1,6 +1,6 @@
 {
   "name": "server-status",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Monitor Via server status.",
   "main": "./lib/main",
   "scripts": {
